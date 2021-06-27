@@ -28,7 +28,7 @@ export const TOKEN_BY_ADDRESS = gql`
       derivedETH
     }
   }
-`;
+`
 
 // gets the top 1k pairs by USD reserves
 export const TOP_PAIRS = gql`
@@ -37,7 +37,6 @@ export const TOP_PAIRS = gql`
     symbol
     name
     derivedETH
-
   }
 
   query TopPairs($limit: Int!, $excludeTokenIds: [String!]!) {
@@ -72,16 +71,20 @@ export const PAIR_RESERVES_BY_TOKENS = gql`
   }
 `
 export const BUNDLE_PRICE_ETH = gql`
-  query Bundle{
-    bundle(id:1){
+  query Bundle {
+    bundle(id: 1) {
       ethPrice
     }
-
   }
 `
-export const SWAPS_BY_PAIR= gql`
+export const SWAPS_BY_PAIR = gql`
   query SwapsByPair($skip: Int!, $timestamp: BigInt!, $pairAddress: String!) {
-    swaps(skip: $skip, where: { timestamp_gte: $timestamp, pair: $pairAddress }, orderBy: timestamp, orderDirection: asc) {
+    swaps(
+      skip: $skip
+      where: { timestamp_gte: $timestamp, pair: $pairAddress }
+      orderBy: timestamp
+      orderDirection: asc
+    ) {
       id
       timestamp
       amount0In
@@ -93,7 +96,7 @@ export const SWAPS_BY_PAIR= gql`
 `
 
 export const PAIR_FROM_TOKENS = gql`
-  query SwapsByTokens( $token0: String!, $token1: String!) {
+  query SwapsByTokens($token0: String!, $token1: String!) {
     pairs(where: { token0: $token0, token1: $token1 }) {
       id
     }
@@ -105,10 +108,10 @@ export const TOTAL_LIQUIDITY = gql`
     uniswapFactories {
       totalLiquidityUSD
       totalVolumeUSD
-      
-      totalVolumeBNB:totalVolumeETH
+
+      totalVolumeBNB: totalVolumeETH
       untrackedVolumeUSD
-      totalLiquidityBNB:totalLiquidityETH
+      totalLiquidityBNB: totalLiquidityETH
       pairCount
       txCount
     }
