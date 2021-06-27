@@ -29,8 +29,9 @@ Results are edge cached for 15 minutes.
   "0x..._0x...": {                  // the asset ids of the BEP20 tokens (i.e. token addresses), joined by an underscore
     "last_price": "1.234",          // denominated in token0/token1
     "base_volume": "123.456",       // last 24h volume denominated in token0
-    "quote_volume": "1234.56"       // last 24h volume denominated in token1
-    "pair_liquidity": "1234.56"     // Pair liquidity in USD
+    "quote_volume": "1234.56",       // last 24h volume denominated in token1
+    "pair_liquidity": "1234.56",     // Pair liquidity in USD
+    trading_pairs:"token0Symbol_token1Symbol"
   },
   // ...
 }
@@ -76,7 +77,6 @@ Results are edge cached for 24 hours.
     totalLiquidityBNB: '32025.75027367803725084151221779494',
     pairCount: 121,
     txCount: '407796',
-    __typename: 'UniswapFactory'
   }
 }
 ```
@@ -96,14 +96,13 @@ Results are edge cached for 24 hours.
 {
   // ...,
   '0x...': {
-    price_bnb:"...",
-    price_usd:"...",
-    // the address of the BEP20 token
     name: '...', // not necesssarily included for BEP20 tokens
     symbol: '...', // not necesssarily included for BEP20 tokens
     id: '0x...', // the address of the BEP20 token
     maker_fee: '0', // always 0
-    taker_fee: '0.002' // always 0.002 i.e. .2%
+    taker_fee: '0.002', // always 0.002 i.e. .2%
+    price_bnb:"...",
+    price_usd:"...",
   }
   // ...
 }
@@ -123,7 +122,6 @@ Returns the single token asset
   "updated_at": "....",
   // ...,
   'data': {
-    // the address of the BEP20 token
     name: '...', // not necesssarily included for BEP20 tokens
     symbol: '...', // not necesssarily included for BEP20 tokens
     id: '0x...', // the address of the BEP20 token
