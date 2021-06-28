@@ -3,8 +3,9 @@
 The CafeSwap API is a set of endpoints used by market aggregators (e.g. coinmarketcap.com) to surface CafeSwap liquidity
 and volume information. All information is fetched from the underlying subgraphs.
 
-The API is designed around the CoinMarketCap
-[requirements document](https://docs.google.com/document/d/1S4urpzUnO2t7DmS_1dc4EL4tgnnbTObPYXvDeBnukCg).
+The API is designed around the [CoinMarketCap document](https://docs.google.com/document/d/1S4urpzUnO2t7DmS_1dc4EL4tgnnbTObPYXvDeBnukCg) and [CoinGecko document](https://docs.google.com/document/d/1v27QFoQq1SKT3Priq3aqPgB70Xd_PnDzbOCiuoCyixw/edit#).
+
+Cafeswap DEX subgraph playground: https://graphapi.cafeswap.finance/subgraphs/name/cafeswap/cafeswap-subgraph-bsc
 
 # CafeSwap Endpoints
 
