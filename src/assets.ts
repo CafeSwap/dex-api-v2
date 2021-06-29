@@ -10,27 +10,28 @@ interface ReturnShape {
 
 export default async function(req: NowRequest, res: NowResponse): Promise<void> {
   try {
-    const ethPriceData=await getBundleEthPrice()
-    const ethPrice=ethPriceData?.bundle?.ethPrice
+    const ethPriceData = await getBundleEthPrice()
+    const ethPrice = ethPriceData?.bundle?.ethPrice
     const pairs = await getTopPairs()
 
     const tokens = pairs.reduce<{
       [tokenAddress: string]: { id: string; name: string; symbol: string; maker_fee: '0'; taker_fee: '0.002' }
     }>((memo: ReturnShape, pair: Pair): ReturnShape => {
       for (let token of [pair.token0, pair.token1]) {
-        console.log("ethPrice",ethPrice);
-        
+        console.log('ethPrice', ethPrice)
+
         const id = getAddress(token.id)
         if (memo[id]) continue
-        memo[id] = {
-   
-          price_bnb:token?.derivedETH,
-          price_usd:ethPrice*token?.derivedETH,
-          id,
-          name: token.name,
-          symbol: token.symbol,
-          maker_fee: '0',
-          taker_fee: '0.002',
+        if (parseFloat(token?.derivedETH) > 0) {
+          memo[id] = {
+            price_bnb: token?.derivedETH,
+            price_usd: ethPrice * token?.derivedETH,
+            id,
+            name: token.name,
+            symbol: token.symbol,
+            maker_fee: '0',
+            taker_fee: '0.002'
+          }
         }
       }
       return memo

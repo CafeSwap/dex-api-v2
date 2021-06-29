@@ -27,18 +27,20 @@ export default async function(req: NowRequest, res: NowResponse): Promise<void> 
       pairs.reduce<ReturnShape>((accumulator, pair): ReturnShape => {
         const id0 = getAddress(pair.token0.id)
         const id1 = getAddress(pair.token1.id)
-
-        accumulator[`${id0}_${id1}`] = {
-          pair_name:`${pair.token0.symbol}_${pair.token1.symbol}`,
-          base_id: id0,
-          base_name: pair.token0.name,
-          base_symbol: pair.token0.symbol,
-          quote_id: id1,
-          quote_name: pair.token1.name,
-          quote_symbol: pair.token1.symbol,
-          last_price: pair.price ?? '0',
-          base_volume: pair.previous24hVolumeToken0.toString(),
-          quote_volume: pair.previous24hVolumeToken1.toString()
+        if (parseFloat(pair.reserveUSD) > 10000 &&  parseFloat(pair?.previous24hVolumeToken0) > 0 && parseFloat(pair?.previous24hVolumeToken1) > 0) {
+          accumulator[`${id0}_${id1}`] = {
+            pair_name: `${pair.token0.symbol}_${pair.token1.symbol}`,
+            base_id: id0,
+            base_name: pair.token0.name,
+            base_symbol: pair.token0.symbol,
+            quote_id: id1,
+            quote_name: pair.token1.name,
+            quote_symbol: pair.token1.symbol,
+            last_price: pair.price ?? '0',
+            base_volume: pair.previous24hVolumeToken0.toString(),
+            quote_volume: pair.previous24hVolumeToken1.toString(),
+            liquidity: pair.reserveUSD
+          }
         }
 
         return accumulator
