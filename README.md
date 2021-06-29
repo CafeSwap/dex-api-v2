@@ -14,14 +14,14 @@ only by WBNB in the pairs.
 
 The canonical WBNB address used by the CafeSwap interface is `0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c`.
 
-## [`/summary`](https://dexapi-v2.vercel.app/api/v2/summary)
+## [`/summary`](https://dexapi.cafeswap.finance/api/v2/summary)
 
 Returns data for the top ~1000 CafeSwap pairs, sorted by reserves.
 Results are edge cached for 15 minutes.
 
 ### Request
 
-`GET https://dexapi-v2.vercel.app/api/v2/summary`
+`GET https://dexapi.cafeswap.finance/api/v2/summary`
 
 ### Response
 
@@ -38,14 +38,14 @@ Results are edge cached for 15 minutes.
 }
 ```
 
-## [`/totalliquidity`](https://dexapi-v2.vercel.app/api/v2/totalliquidity)
+## [`/totalliquidity`](https://dexapi.cafeswap.finance/api/v2/totalliquidity)
 
 Returns the total liquidity in USD value on CafeSwap.
 Results are edge cached for 24 hours.
 
 ### Request
 
-`GET https://dexapi-v2.vercel.app/api/v2/totalliquidity`
+`GET https://dexapi.cafeswap.finance/api/v2/totalliquidity`
 
 ### Response
 
@@ -57,14 +57,14 @@ Results are edge cached for 24 hours.
 }
 ```
 
-## [`/stats`](https://dexapi-v2.vercel.app/api/v2/totalliquidity)
+## [`/stats`](https://dexapi.cafeswap.finance/api/v2/totalliquidity)
 
 Returns the statistics value on CafeSwap.
 Results are edge cached for 24 hours.
 
 ### Request
 
-`GET https://dexapi-v2.vercel.app/api/v2/stats`
+`GET https://dexapi.cafeswap.finance/api/v2/stats`
 
 ### Response
 
@@ -82,14 +82,14 @@ Results are edge cached for 24 hours.
 }
 ```
 
-## [`/assets`](https://dexapi-v2.vercel.app/api/v2/assets)
+## [`/assets`](https://dexapi.cafeswap.finance/api/v2/assets)
 
 Returns the tokens in the top ~1000 pairs on CafeSwap, sorted by reserves.
 Results are edge cached for 24 hours.
 
 ### Request
 
-`GET https://dexapi-v2.vercel.app/api/v2/assets`
+`GET https://dexapi.cafeswap.finance/api/v2/assets`
 
 ### Response
 
@@ -114,7 +114,7 @@ Returns the single token asset
 
 ### Request
 
-`GET https://dexapi-v2.vercel.app/api/v2/assets/:token_address`
+`GET https://dexapi.cafeswap.finance/api/v2/assets/:token_address`
 
 ### Response
 
@@ -134,14 +134,14 @@ Returns the single token asset
   // ...
 }
 ```
-## [`/tickers`](https://dexapi-v2.vercel.app/api/v2/tickers)
+## [`/tickers`](https://dexapi.cafeswap.finance/api/v2/tickers)
 
 Returns data for the top ~1000 CafeSwap pairs, sorted by reserves.
 Results are edge cached for 1 minute.
 
 ### Request
 
-`GET https://dexapi-v2.vercel.app/api/v2/tickers`
+`GET https://dexapi.cafeswap.finance/api/v2/tickers`
 
 ### Response
 
@@ -172,7 +172,7 @@ Results are edge cached for 15 minutes.
 
 ### Request
 
-`GET https://dexapi-v2.vercel.app/api/v2/orderbook/:pair`
+`GET https://dexapi.cafeswap.finance/api/v2/orderbook/:pair`
 
 ### URL Parameters
 
@@ -213,7 +213,7 @@ trade types (types `"???"` and `"borrow-both"`).
 
 ### Request
 
-`GET https://dexapi-v2.vercel.app/api/v2/trades/:pair`
+`GET https://dexapi.cafeswap.finance/api/v2/trades/:pair`
 
 ### Response
 
