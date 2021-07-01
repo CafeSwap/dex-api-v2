@@ -58,6 +58,7 @@ export const TOP_PAIRS = gql`
       volumeToken0
       volumeToken1
       reserveUSD
+      totalSupply
     }
   }
 `
@@ -91,6 +92,11 @@ export const SWAPS_BY_PAIR = gql`
       amount0Out
       amount1In
       amount1Out
+      from 
+      to
+      amountUSD
+      logIndex
+      sender
     }
   }
 `

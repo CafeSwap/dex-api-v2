@@ -44,6 +44,10 @@ export default async function(req: NowRequest, res: NowResponse): Promise<void> 
         const baseAmount = aOut ? swap.amountAOut : swap.amountAIn
         const quoteAmount = bOut ? swap.amountBOut : swap.amountBIn
         return {
+          from:swap.from,
+          to:swap.to,
+          amountUSD:swap.amountUSD,
+
           trade_id: swap.id,
           base_volume: baseAmount,
           quote_volume: quoteAmount,

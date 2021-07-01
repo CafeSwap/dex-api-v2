@@ -24,7 +24,8 @@ export default async function(req: NowRequest, res: NowResponse): Promise<void> 
           last_price: pair.price ?? '0',
           base_volume: pair.volumeToken0,
           quote_volume: pair.volumeToken1,
-          pair_liquidity: pair.reserveUSD
+          pair_liquidity: pair.reserveUSD,
+          pair_supply:pair.totalSupply,
         }}
         return accumulator
       }, {}),
